@@ -225,9 +225,11 @@ export default function OrderForm({ quantity, setQuantity, color, setColor, form
               
               <div className="grid grid-cols-2 gap-3 mb-3">
                 <figure className="rounded-2xl overflow-hidden shadow-soft ring-1 ring-gold/15 relative aspect-[4/3]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/media/image_6.webp" alt="تغذية راجعة" className="w-full h-full object-cover" />
                 </figure>
                 <figure className="rounded-2xl overflow-hidden shadow-soft ring-1 ring-gold/15 relative aspect-[4/3]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/media/image_7.webp" alt="تغذية راجعة" className="w-full h-full object-cover" />
                 </figure>
               </div>

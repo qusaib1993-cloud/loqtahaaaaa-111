@@ -13,12 +13,6 @@ import OrderForm from "../components/OrderForm";
 import Testimonials from "../components/Testimonials";
 import { PRICE_ONE, PRICE_TWO, SOCIAL } from "./data";
 
-
-
-
-
-
-
 export default function Page() {
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("green");

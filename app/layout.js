@@ -30,11 +30,13 @@ export default function RootLayout({ children }) {
           }}
         />
         <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             height="1"
             width="1"
             style={{ display: "none" }}
             src="https://www.facebook.com/tr?id=2696225470778827&ev=PageView&noscript=1"
+            alt="facebook pixel"
           />
         </noscript>
       </head>

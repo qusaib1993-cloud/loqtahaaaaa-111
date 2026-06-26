@@ -33,9 +33,7 @@ function ThankYouContent() {
     }
   }, [total, quantity]);
 
-  const [isSent, setIsSent] = useState(false);
-
-  const handleWhatsAppClick = async () => {
+  const handleWhatsAppClick = () => {
     const adminPhone = "962775347250";
     const message = `🔔 *طلب تفصيل جديد - لقطة كوليكشن*
 • *الاسم:* ${name}
@@ -44,27 +42,8 @@ function ThankYouContent() {
 • *العنوان:* ${address}
 • *القياسات:* الوزن: ${weight} كغ / الطول: ${height} سم
 • *الكمية:* ${quantity === "2" ? "قطعتين" : "قطعة واحدة"}
-• *الألوان:* ${color} ${color2 ? `/ ${color2}` : ""}`;
-
-    const payload = {
-      name, phone: searchParams.get("phone") || "", gov, address, height, weight, quantity, color, color2, total
-    };
-
-    if (!isSent) {
-      try {
-        await fetch("https://formspree.io/f/mojoegno", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            subject: `طلب جديد من ${name} - عبر الواتساب`,
-            ...payload,
-          }),
-        });
-        setIsSent(true);
-      } catch (err) {
-        console.error("فشل إرسال الإيميل:", err);
-      }
-    }
+• *الألوان:* ${color} ${color2 ? `/ ${color2}` : ""}
+• *المجموع:* ${total} دينار`;
 
     const waLink = `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
     window.location.href = waLink; // استخدام location.href للتحويل المباشر
