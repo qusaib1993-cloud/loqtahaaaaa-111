@@ -11,6 +11,7 @@ function ThankYouContent() {
   const searchParams = useSearchParams();
   const name = searchParams.get("name") || "";
   const gov = searchParams.get("gov") || "";
+  const governorate = searchParams.get("governorate") || "";
   const address = searchParams.get("address") || "";
   const quantity = searchParams.get("quantity") || "1";
   const total = searchParams.get("total") || "28";
@@ -32,6 +33,25 @@ function ThankYouContent() {
       console.log("Meta Pixel Purchase Event Tracked Successfully:", total, "JOD");
     }
   }, [total, quantity]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && name) {
+      const msg = `طلب جديد - لقطة كوليكشن
+━━━━━━━━━━━━━━
+👤 الاسم: ${name}
+📍 المحافظة: ${gov || governorate}
+🏠 العنوان: ${address}
+📦 الكمية: ${quantity}
+🎨 اللون: ${color || 'غير محدد'}
+📏 الطول: ${height || '-'} سم
+⚖️ الوزن: ${weight || '-'} كغ
+💰 المجموع: ${total} دينار
+━━━━━━━━━━━━━━`;
+
+      const url = `https://wa.me/962775347250?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    }
+  }, [name, gov, governorate, address, quantity, color, height, weight, total]);
 
   return (
     <div className="max-w-xl mx-auto px-4 py-8 sm:py-12">
