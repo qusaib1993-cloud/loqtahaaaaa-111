@@ -34,25 +34,6 @@ function ThankYouContent() {
     }
   }, [total, quantity]);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined' && name) {
-      const msg = `طلب جديد - لقطة كوليكشن
-━━━━━━━━━━━━━━
-👤 الاسم: ${name}
-📍 المحافظة: ${gov || governorate}
-🏠 العنوان: ${address}
-📦 الكمية: ${quantity}
-🎨 اللون: ${color || 'غير محدد'}
-📏 الطول: ${height || '-'} سم
-⚖️ الوزن: ${weight || '-'} كغ
-💰 المجموع: ${total} دينار
-━━━━━━━━━━━━━━`;
-
-      const url = `https://wa.me/962775347250?text=${encodeURIComponent(msg)}`;
-      window.open(url, '_blank');
-    }
-  }, [name, gov, governorate, address, quantity, color, height, weight, total]);
-
   return (
     <div className="max-w-xl mx-auto px-4 py-8 sm:py-12">
       <div className="text-center">
@@ -82,7 +63,7 @@ function ThankYouContent() {
           </div>
           <div>
             <p className="text-earth/70 text-xs">المحافظة والعنوان</p>
-            <p className="font-bold text-royal">{gov} - {address || "-"}</p>
+            <p className="font-bold text-royal">{(gov || governorate) || "-"} - {address || "-"}</p>
           </div>
           <div>
             <p className="text-earth/70 text-xs">الكمية المطلوبة</p>
@@ -148,8 +129,25 @@ function ThankYouContent() {
         </ul>
       </div>
 
+      {/* زر الواتساب لإرسال ملخص الطلب يدوياً لسرعة التجهيز */}
+      <div className="mt-8">
+        <a
+          href={`https://wa.me/962775347250?text=${encodeURIComponent(
+            `طلب جديد - لقطة كوليكشن\n━━━━━━━━━━━━━━\n👤 الاسم: ${name}\n📍 المحافظة: ${(gov || governorate) || '-'}\n🏠 العنوان: ${address || '-'}\n📦 الكمية: ${quantity}\n🎨 اللون: ${color || 'غير محدد'}${color2 ? ` & ${color2}` : ''}\n📏 الطول: ${height || '-'} سم\n⚖️ الوزن: ${weight || '-'} كغ\n💰 المجموع: ${total} دينار\n━━━━━━━━━━━━━━`
+          )}`}
+          target="_blank"
+          rel="noreferrer"
+          className="w-full inline-flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-2xl transition text-base active:scale-95 shadow-lg shadow-emerald-600/20 animate-pulse hover:animate-none"
+        >
+          <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.003-2.637-1.03-5.115-2.909-6.995-1.878-1.88-4.357-2.914-6.999-2.914-5.443 0-9.869 4.424-9.873 9.869-.001 1.648.43 3.254 1.248 4.667l-.98 3.57 3.66-.96c1.37.747 2.876 1.14 4.413 1.142zm9.648-6.602c-.272-.137-1.61-.795-1.86-.885-.25-.09-.432-.136-.613.137-.182.273-.705.885-.863 1.068-.158.182-.317.205-.59.069-.272-.137-1.15-.424-2.19-1.354-.808-.722-1.353-1.615-1.512-1.888-.158-.272-.017-.42.12-.556.123-.122.272-.318.408-.477.137-.16.182-.273.272-.455.09-.182.046-.341-.023-.478-.068-.137-.613-1.477-.84-2.023-.22-.53-.442-.457-.613-.466-.159-.008-.34-.01-.522-.01s-.477.068-.727.341c-.25.273-.954.932-.954 2.273s.977 2.636 1.114 2.818c.137.182 1.922 2.934 4.66 4.113 2.738 1.179 2.738.786 3.284.731.546-.054 1.61-.659 1.838-1.296.227-.636.227-1.182.159-1.296-.068-.114-.25-.205-.523-.341z" />
+          </svg>
+          تأكيد وإرسال تفاصيل الطلب عبر واتساب
+        </a>
+      </div>
+
       {/* أزرار الإجراءات */}
-      <div className="mt-8 flex flex-col sm:flex-row gap-3">
+      <div className="mt-4 flex flex-col sm:flex-row gap-3">
         <Link
           href="/"
           className="flex-1 inline-flex items-center justify-center gap-2 bg-cream text-royal font-bold py-3.5 px-6 rounded-2xl border border-gold/30 hover:bg-gold/10 transition text-sm active:scale-95"
