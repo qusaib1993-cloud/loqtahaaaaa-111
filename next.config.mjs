@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: { unoptimized: true },
+  output: 'standalone',
   experimental: {
     optimizePackageImports: ['lucide-react']
   }

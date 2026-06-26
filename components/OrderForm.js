@@ -168,39 +168,75 @@ export default function OrderForm({ quantity, setQuantity, color, setColor, form
             ))}
           </div>
 
-          {/* اللون */}
-          <div>
-            <label className="text-sm font-bold text-royal">اللون{quantity === 2 ? " الأول" : ""}</label>
-            <div className="mt-2 flex gap-2 flex-wrap">
-              {COLORS.map((c) => (
-                <button
-                  type="button" key={c.id} onClick={() => setColor(c.id)}
-                  className="w-9 h-9 rounded-full transition"
-                  style={{ background: c.hex, boxShadow: color === c.id ? `0 0 0 2px #fbf7ee, 0 0 0 4px ${c.ring}` : undefined }}
-                  aria-label={c.name}
-                  title={c.name}
-                />
-              ))}
-              <span className="self-center text-sm text-earth mr-1">{colorName(color)}</span>
-            </div>
-          </div>
-
-          {quantity === 2 && (
-            <div>
-              <label className="text-sm font-bold text-royal">اللون الثاني</label>
-              <div className="mt-2 flex gap-2 flex-wrap">
-                {COLORS.map((c) => (
+          {/* اختيار اللون بتصميم كبير */}
+          <div className="mt-6 mb-8 text-center bg-sand p-4 sm:p-6 rounded-2xl ring-1 ring-gold/20">
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-royal mb-2">اختاري لونكِ المفضّل</h3>
+            <p className="text-earth text-xs sm:text-sm mb-5">الألوان المتوفرة حالياً — كلها من نفس الخامة الفاخرة</p>
+            <div className="flex justify-center gap-4 sm:gap-6 flex-wrap">
+              {COLORS.map((c) => {
+                const on = color === c.id;
+                return (
                   <button
-                    type="button" key={c.id} onClick={() => setColor2(c.id)}
-                    className="w-9 h-9 rounded-full transition"
-                    style={{ background: c.hex, boxShadow: color2 === c.id ? `0 0 0 2px #fbf7ee, 0 0 0 4px ${c.ring}` : undefined }}
-                    aria-label={c.name} title={c.name}
-                  />
-                ))}
-                <span className="self-center text-sm text-earth mr-1">{colorName(color2)}</span>
+                    type="button" key={c.id} onClick={() => setColor(c.id)}
+                    className="flex flex-col items-center gap-2 active:scale-95 transition"
+                  >
+                    <span
+                      className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-soft flex items-center justify-center"
+                      style={{ background: c.hex, boxShadow: on ? `0 0 0 3px #fbf7ee, 0 0 0 6px ${c.ring}` : undefined }}
+                    >
+                      {on && <CheckCircle2 size={22} className="text-cream" />}
+                    </span>
+                    <span className={`text-xs font-bold ${on ? "text-royal" : "text-earth"}`}>{c.name}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {quantity === 2 && (
+              <div className="mt-6 pt-6 border-t border-gold/15">
+                <h3 className="font-display text-lg sm:text-xl font-bold text-royal mb-4">اللون الثاني</h3>
+                <div className="flex justify-center gap-4 sm:gap-6 flex-wrap">
+                  {COLORS.map((c) => {
+                    const on = color2 === c.id;
+                    return (
+                      <button
+                        type="button" key={c.id} onClick={() => setColor2(c.id)}
+                        className="flex flex-col items-center gap-2 active:scale-95 transition"
+                      >
+                        <span
+                          className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-soft flex items-center justify-center"
+                          style={{ background: c.hex, boxShadow: on ? `0 0 0 3px #fbf7ee, 0 0 0 6px ${c.ring}` : undefined }}
+                        >
+                          {on && <CheckCircle2 size={20} className="text-cream" />}
+                        </span>
+                        <span className={`text-xs font-bold ${on ? "text-royal" : "text-earth"}`}>{c.name}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* الفيديو والصور للتغذية الراجعة */}
+            <div className="mt-8">
+              <h3 className="font-display text-lg font-bold text-royal mb-4 bg-cream inline-block px-4 py-1.5 rounded-full ring-1 ring-gold/20 shadow-sm">
+                - خياراتكم المفضلة الجديدة -
+              </h3>
+              
+              <div className="grid grid-cols-2 gap-3 mb-3">
+                <figure className="rounded-2xl overflow-hidden shadow-soft ring-1 ring-gold/15 relative aspect-[4/3]">
+                  <img src="/media/image_6.webp" alt="تغذية راجعة" className="w-full h-full object-cover" />
+                </figure>
+                <figure className="rounded-2xl overflow-hidden shadow-soft ring-1 ring-gold/15 relative aspect-[4/3]">
+                  <img src="/media/image_7.webp" alt="تغذية راجعة" className="w-full h-full object-cover" />
+                </figure>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-soft ring-1 ring-gold/15 relative bg-cream">
+                <InlineVideo src="/media/video-1.mp4" poster="/media/look-maroon-hall.webp" />
               </div>
             </div>
-          )}
+          </div>
 
           <hr className="border-gold/15" />
 

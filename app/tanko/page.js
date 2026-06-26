@@ -49,19 +49,14 @@ function ThankYouContent() {
 
   const handleWhatsAppClick = async () => {
     const adminPhone = "962775347250";
-    const message = `🔔 *طلب جديد - لقطة كوليكشن*
-
-*الزبونة:* ${name}
-*رقم الهاتف:* ${phone}
-*المحافظة والعنوان:* ${gov} - ${address}
-
-*القياسات:*
-الطول: ${height} سم | الوزن: ${weight} كغ
-
-*الطلب:* ${quantity === 2 ? "قطعتين" : "قطعة واحدة"}
-*الألوان:* ${color} ${color2 ? ` و ${color2}` : ""}
-
-*المجموع:* ${total} دينار (شامل التوصيل)`;
+    const message = `🔔 *طلب تفصيل جديد - لقطة كوليكشن*
+• *الاسم:* ${name}
+• *الهاتف:* ${phone}
+• *المحافظة:* ${gov}
+• *العنوان:* ${address}
+• *القياسات:* الوزن: ${weight} كغ / الطول: ${height} سم
+• *الكمية:* ${quantity === 2 ? "قطعتين" : "قطعة واحدة"}
+• *الألوان:* ${color} ${color2 ? `/ ${color2}` : ""}`;
 
     const payload = {
       name, phone, gov, address, height, weight, quantity, color, color2, total
@@ -176,8 +171,6 @@ function ThankYouContent() {
     </div>
   );
 }
-
-export const dynamic = "force-dynamic";
 
 export default function ThankYouPage() {
   return (

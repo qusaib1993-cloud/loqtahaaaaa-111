@@ -6,7 +6,6 @@ import { ShoppingBag, Instagram, Facebook } from "lucide-react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Gallery from "../components/Gallery";
-import Colors from "../components/Colors";
 import Videos from "../components/Videos";
 import Features from "../components/Features";
 import Pricing from "../components/Pricing";
@@ -19,8 +18,6 @@ import { PRICE_ONE, PRICE_TWO, SOCIAL } from "./data";
 
 
 
-
-export const dynamic = "force-dynamic";
 
 export default function Page() {
   const [quantity, setQuantity] = useState(1);
@@ -35,7 +32,6 @@ export default function Page() {
       <Header onOrder={scrollToForm} />
       <Hero onOrder={scrollToForm} />
       <Gallery />
-      <Colors selected={color} setSelected={setColor} />
       <Videos />
       <Features />
       <Pricing quantity={quantity} setQuantity={setQuantity} onOrder={scrollToForm} />

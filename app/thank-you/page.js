@@ -155,8 +155,6 @@ function ThankYouContent() {
 
 
 
-export const dynamic = "force-dynamic";
-
 export default function ThankYouPage() {
   return (
     <main className="min-h-screen bg-sand/30 py-8 sm:py-12">
