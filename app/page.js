@@ -12,8 +12,13 @@ import Features from "../components/Features";
 import Pricing from "../components/Pricing";
 import OrderForm from "../components/OrderForm";
 import Testimonials from "../components/Testimonials";
-import WhatsAppFAB from "../components/WhatsAppFAB";
 import { PRICE_ONE, PRICE_TWO, SOCIAL } from "./data";
+
+
+
+
+
+export const dynamic = "force-dynamic";
 
 export default function Page() {
   const [quantity, setQuantity] = useState(1);
@@ -31,8 +36,8 @@ export default function Page() {
       <Colors selected={color} setSelected={setColor} />
       <Videos />
       <Features />
-      <Testimonials />
       <Pricing quantity={quantity} setQuantity={setQuantity} onOrder={scrollToForm} />
+      <Testimonials />
       <OrderForm
         quantity={quantity} setQuantity={setQuantity}
         color={color} setColor={setColor}
@@ -85,7 +90,6 @@ export default function Page() {
           </button>
         </div>
       </motion.div>
-      <WhatsAppFAB />
     </main>
   );
 }

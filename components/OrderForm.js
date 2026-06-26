@@ -20,7 +20,7 @@ const inputCls =
   "w-full rounded-xl border border-gold/30 bg-cream pr-10 pl-3 py-3 text-royal placeholder-earth/50 focus:border-gold focus:ring-2 focus:ring-gold/30 outline-none transition";
 
 export default function OrderForm({ quantity, setQuantity, color, setColor, formRef }) {
-  const [form, setForm] = useState({ name: "", phone: "", gov: "", address: "", height: "", weight: "" });
+  const [form, setForm] = useState({ name: "", phone: "", gov: "عمان", address: "", height: "", weight: "" });
   const [color2, setColor2] = useState("maroon");
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
@@ -90,40 +90,43 @@ export default function OrderForm({ quantity, setQuantity, color, setColor, form
       total,
     };
     setSubmitting(true);
+    
+    // إرسال الطلب للإيميل (Formspree)
+    try {
+      await fetch("https://formspree.io/f/mojoegno", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } catch (err) {
+      console.error("فشل إرسال الإيميل:", err);
+    }
+
+    // إرسال نسخة احتياطية للخادم
     try {
       await fetch("/api/order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const params = new URLSearchParams({
-        name: payload.name,
-        gov: payload.gov,
-        address: payload.address,
-        quantity: String(payload.quantity),
-        total: String(payload.total),
-        color: payload.color,
-        color2: payload.color2 || "",
-        height: String(payload.height),
-        weight: String(payload.weight)
-      });
-      window.location.href = `/tanko?${params.toString()}`;
     } catch (err) {
-      const params = new URLSearchParams({
-        name: payload.name,
-        gov: payload.gov,
-        address: payload.address,
-        quantity: String(payload.quantity),
-        total: String(payload.total),
-        color: payload.color,
-        color2: payload.color2 || "",
-        height: String(payload.height),
-        weight: String(payload.weight)
-      });
-      window.location.href = `/tanko?${params.toString()}`;
-    } finally {
-      setSubmitting(false);
+      console.error(err);
     }
+
+    // التحويل إلى صفحة الشكر (tanko) مع جميع البيانات
+    const params = new URLSearchParams({
+      name: payload.name,
+      phone: payload.phone,
+      gov: payload.gov,
+      address: payload.address,
+      quantity: String(payload.quantity),
+      total: String(payload.total),
+      color: payload.color,
+      color2: payload.color2 || "",
+      height: String(payload.height),
+      weight: String(payload.weight)
+    });
+    window.location.href = `/tanko?${params.toString()}`;
   };
 
   return (
@@ -258,14 +261,14 @@ export default function OrderForm({ quantity, setQuantity, color, setColor, form
               <div data-err={!!errors.height}>
                 <label className="block text-[11px] font-bold text-royal mb-1">الطول (بالسنتيمتر)</label>
                 <Field icon={Ruler}>
-                  <input className={inputCls} inputMode="numeric" placeholder="مثال: 160" value={form.height} onChange={set("height")} />
+                  <input className={inputCls} inputMode="numeric" placeholder="مثلاً: 165" value={form.height} onChange={set("height")} />
                 </Field>
                 {errors.height && <p className="text-red-600 text-xs mt-1">{errors.height}</p>}
               </div>
               <div data-err={!!errors.weight}>
                 <label className="block text-[11px] font-bold text-royal mb-1">الوزن (بالكيلوغرام)</label>
                 <Field icon={Weight}>
-                  <input className={inputCls} inputMode="numeric" placeholder="مثال: 70" value={form.weight} onChange={set("weight")} />
+                  <input className={inputCls} inputMode="numeric" placeholder="مثلاً: 65" value={form.weight} onChange={set("weight")} />
                 </Field>
                 {errors.weight && <p className="text-red-600 text-xs mt-1">{errors.weight}</p>}
               </div>

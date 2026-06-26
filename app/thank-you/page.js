@@ -8,16 +8,16 @@ import { CheckCircle2, Truck, PhoneCall, Home, ShoppingBag, Instagram, ArrowRigh
 
 // محتوى صفحة الشكر الذي يقرأ الرابط ويتابع التحويلات
 function ThankYouContent() {
-  const searchParams = useSearchParams();
-  const name = searchParams.get("name") || "";
-  const gov = searchParams.get("gov") || "";
-  const address = searchParams.get("address") || "";
-  const quantity = searchParams.get("quantity") || "1";
-  const total = searchParams.get("total") || "28";
-  const color = searchParams.get("color") || "";
-  const color2 = searchParams.get("color2") || "";
-  const height = searchParams.get("height") || "";
-  const weight = searchParams.get("weight") || "";
+  // const searchParams = useSearchParams();
+  const name = "عزيزتنا";
+  const gov = "";
+  const address = "";
+  const quantity = "1";
+  const total = "28";
+  const color = "";
+  const color2 = "";
+  const height = "";
+  const weight = "";
 
   useEffect(() => {
     // إرسال حدث الشراء (Purchase) إلى فيسبوك بيكسل لغايات تتبع وقياس الإعلانات بدقة
@@ -148,6 +148,12 @@ function ThankYouContent() {
     </div>
   );
 }
+
+
+
+
+
+export const dynamic = "force-dynamic";
 
 export default function ThankYouPage() {
   return (

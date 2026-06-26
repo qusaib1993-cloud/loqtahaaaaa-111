@@ -2,7 +2,7 @@ export const PRICE_ONE = 17;
 export const PRICE_TWO = 30;
 
 export const GOVERNORATES = [
-  "عمّان",
+  "عمان",
   "الزرقاء",
   "إربد",
   "المفرق",

@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Check, Crown, Flame } from "lucide-react";
 import { PRICE_ONE, PRICE_TWO } from "../app/data";
 import Reveal from "./Reveal";
-import CountdownTimer from "./CountdownTimer";
 
 export default function Pricing({ quantity, setQuantity, onOrder }) {
   const plans = [
@@ -23,12 +22,12 @@ export default function Pricing({ quantity, setQuantity, onOrder }) {
     <section className="py-10">
       <div className="max-w-3xl mx-auto px-4">
         <Reveal>
-          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl text-balance tracking-tight font-bold text-center text-royal">اختاري عرضكِ</h2>
+          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl text-balance tracking-tight font-bold text-center text-royal">اختاري العرض المناسب لكِ</h2>
           <p className="text-center text-earth text-sm mt-2">كل الأسعار تشمل الشال والحزام والتوصيل المجاني</p>
         </Reveal>
 
         <Reveal delay={0.05}>
-          <CountdownTimer />
+          <div className="h-4" />
         </Reveal>
 
         <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-4">

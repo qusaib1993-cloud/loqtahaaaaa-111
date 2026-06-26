@@ -21,7 +21,8 @@ export default function Hero({ onOrder }) {
 
         <motion.h1
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-display mt-4 text-2xl sm:text-4xl md:text-5xl font-bold leading-tight text-balance tracking-tight"
+          className="font-display mt-4 text-3xl sm:text-5xl md:text-6xl font-bold leading-tight text-balance tracking-tight"
+          style={{ fontFamily: "var(--font-amiri)" }}
         >
           عباية <span className="gold-text">لقطة كوليكشن</span> الملكية الفاخرة
         </motion.h1>
@@ -63,6 +64,9 @@ export default function Hero({ onOrder }) {
           >
             <p className="text-[11px] text-earth">السعر شامل التوصيل</p>
             <p className="font-display text-2xl font-bold gold-text">17 دينار</p>
+            <p className="text-[10px] font-bold text-red-600 mt-1 max-w-[120px] leading-tight">
+              احجزي عبايتك الملكية الآن.. الكمية محدودة والطلب يغلق تلقائياً عند اكتمال الـ 50 طلباً!
+            </p>
           </motion.div>
         </motion.div>
 
