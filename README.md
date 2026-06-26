@@ -1,11 +1,26 @@
-<div align="center">
+# لقطة كوليكشن — صفحة هبوط العباية الملكية الفاخرة
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+صفحة هبوط أحادية المنتج فائقة السرعة وعالية التحويل، مخصصة لإعلانات فيسبوك وانستغرام في الأردن.
 
-  <h1>Built with AI Studio</h2>
+## المميزات
+- تصميم Mobile-first بالعربية (RTL) بثيم ملكي أخضر/ذهبي.
+- تفصيل حسب الوزن والطول بدل المقاسات التقليدية.
+- معرض صور تفاعلي + مشغّل فيديوهات حقيقية + فيديو طريقة القياس.
+- اختيار الألوان، عرض القطعتين (Upsell)، وحساب السعر النهائي فوراً.
+- قسم آراء العميلات (Feedback) وأنيميشن Framer Motion وأيقونات Lucide.
+- نموذج طلب بسيط (اسم، هاتف، محافظة، عنوان، طول، وزن) يُرسل الطلب على الإيميل.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## التشغيل
+```bash
+npm install
+npm run build
+npm start
+```
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## متغيرات البيئة (لإرسال الطلبات على الإيميل عبر Resend)
+- `RESEND_API_KEY` — مفتاح Resend API.
+- `ORDER_EMAIL_TO` — إيميل استقبال الطلبات (افتراضي: Qusayalbdour98@gmail.com).
+- `RESEND_FROM` — عنوان المُرسِل (يفضّل دومين موثّق في Resend).
 
-</div>
+## التقنيات
+Next.js 14 · Tailwind CSS · Framer Motion · Lucide React

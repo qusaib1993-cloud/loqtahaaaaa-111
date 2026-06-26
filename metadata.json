@@ -1,0 +1,6 @@
+{
+  "name": "Loqtah Abaya Landing Page",
+  "description": "A high-converting, mobile-first luxury landing page for Loqtah Abayas with custom tailoring order form, pricing offer, scarcity timer, and a custom Thank You page.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
