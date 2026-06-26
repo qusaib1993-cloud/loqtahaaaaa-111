@@ -31,7 +31,7 @@ export default function Header({ onOrder }) {
         <div className="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="relative w-11 h-11 rounded-full overflow-hidden ring-2 ring-gold/50 shadow-gold">
-              <Image src="/media/logo.webp" alt="لقطة كوليكشن" fill loading="lazy" decoding="async" className="object-cover" />
+              <Image src="/media/logo.jpeg" alt="لقطة كوليكشن" fill className="object-cover" />
             </div>
             <div className="leading-tight">
               <p className="font-display text-lg font-bold text-royal">لقطة كوليكشن</p>

@@ -20,15 +20,14 @@ export default function Hero({ onOrder }) {
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-display mt-4 text-3xl sm:text-5xl md:text-6xl font-bold leading-tight text-balance tracking-tight"
-          style={{ fontFamily: "var(--font-amiri)" }}
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
+          className="font-display mt-4 text-3xl sm:text-5xl font-bold leading-tight text-balance"
         >
           عباية <span className="gold-text">لقطة كوليكشن</span> الملكية الفاخرة
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
           className="mt-3 text-sm sm:text-lg text-cream/85 max-w-xl mx-auto text-balance"
         >
           تُفصّل خصيصاً <span className="text-goldLight font-bold">حسب وزنكِ وطولكِ بدقة</span> — لتناسب تفاصيل قوامكِ تماماً. 
@@ -55,7 +54,7 @@ export default function Hero({ onOrder }) {
           className="relative mt-7"
         >
           <div className="floaty frame-gold relative mx-auto w-[78%] max-w-sm aspect-[3/4] rounded-[28px] overflow-hidden ring-1 ring-gold/30">
-            <Image src="/media/look-maroon-studio.webp" alt="عباية لقطة كوليكشن الملكية" fill priority loading="eager" decoding="async" className="object-cover" />
+            <Image src="/media/look-maroon-studio.jpeg" alt="عباية لقطة كوليكشن الملكية" fill priority className="object-cover" />
           </div>
           {/* بطاقة السعر العائمة */}
           <motion.div
@@ -63,10 +62,7 @@ export default function Hero({ onOrder }) {
             className="absolute top-6 left-3 sm:left-10 glass rounded-2xl px-4 py-3 text-royal text-right shadow-soft"
           >
             <p className="text-[11px] text-earth">السعر شامل التوصيل</p>
-            <p className="font-display text-2xl font-bold gold-text">17 دينار</p>
-            <p className="text-[10px] font-bold text-red-600 mt-1 max-w-[120px] leading-tight">
-              احجزي عبايتك الملكية الآن.. الكمية محدودة والطلب يغلق تلقائياً عند اكتمال الـ 50 طلباً!
-            </p>
+            <p className="font-display text-2xl font-bold gold-text">18 دينار</p>
           </motion.div>
         </motion.div>
 

@@ -1,8 +1,8 @@
-export const PRICE_ONE = 17;
-export const PRICE_TWO = 30;
+export const PRICE_ONE = 18;
+export const PRICE_TWO = 32;
 
 export const GOVERNORATES = [
-  "عمان",
+  "عمّان",
   "الزرقاء",
   "إربد",
   "المفرق",
@@ -25,13 +25,13 @@ export const COLORS = [
 ];
 
 export const GALLERY = [
-  { src: "/media/look-maroon-studio.webp", alt: "عباية لقطة كوليكشن - خمري بإطلالة كاملة" },
-  { src: "/media/look-maroon-hall.webp", alt: "عباية لقطة كوليكشن - خمري بلمسة عصرية" },
-  { src: "/media/look-maroon-mirror.webp", alt: "عباية لقطة كوليكشن - تفاصيل القصّة الأنيقة" },
-  { src: "/media/look-black.webp", alt: "عباية لقطة كوليكشن - الإطلالة السوداء الملكية" },
-  { src: "/media/look-green.webp", alt: "عباية لقطة كوليكشن - أخضر زمردي فاخر" },
-  { src: "/media/detail-1.webp", alt: "تفاصيل الأكمام والكسرات الفخمة" },
-  { src: "/media/detail-2.webp", alt: "قرب الخامة وانسيابية القماش" },
+  { src: "/media/look-maroon-studio.jpeg", alt: "عباية لقطة كوليكشن - خمري بإطلالة كاملة" },
+  { src: "/media/look-maroon-hall.jpeg", alt: "عباية لقطة كوليكشن - خمري بلمسة عصرية" },
+  { src: "/media/look-maroon-mirror.jpeg", alt: "عباية لقطة كوليكشن - تفاصيل القصّة الأنيقة" },
+  { src: "/media/look-black.jpeg", alt: "عباية لقطة كوليكشن - الإطلالة السوداء الملكية" },
+  { src: "/media/look-green.jpeg", alt: "عباية لقطة كوليكشن - أخضر زمردي فاخر" },
+  { src: "/media/detail-1.jpeg", alt: "تفاصيل الأكمام والكسرات الفخمة" },
+  { src: "/media/detail-2.jpeg", alt: "قرب الخامة وانسيابية القماش" },
 ];
 
 export const VIDEOS = [
@@ -39,13 +39,13 @@ export const VIDEOS = [
     id: "v1",
     label: "حركة وتفصيل العباية",
     src: "/media/video-1.mp4",
-    poster: "/media/look-maroon-hall.webp",
+    poster: "/media/look-maroon-hall.jpeg",
   },
   {
     id: "v2",
     label: "قرب الخامة والكسرات الأنيقة",
     src: "/media/video-4.mp4",
-    poster: "/media/look-maroon-studio.webp",
+    poster: "/media/look-maroon-studio.jpeg",
   },
 ];
 
@@ -56,7 +56,7 @@ export const SOCIAL = {
 
 export const SIZE_GUIDE_VIDEO = {
   src: "/media/size-guide.mp4",
-  poster: "/media/look-green.webp",
+  poster: "/media/look-green.jpeg",
 };
 
 export const TAGLINE = "فخامة تُفصّل عليكِ";

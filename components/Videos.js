@@ -29,7 +29,7 @@ export default function Videos() {
         <Reveal>
           <div className="flex items-center justify-center gap-2 text-gold">
             <Film size={20} />
-            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl text-balance tracking-tight font-bold text-royal">شوفي القماش بالحركة</h2>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-royal">شوفي القماش بالحركة</h2>
           </div>
           <p className="text-center text-earth text-sm mt-2">فيديوهات حقيقية — جودة الخامة والكسرات عن قرب</p>
         </Reveal>

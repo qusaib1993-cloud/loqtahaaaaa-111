@@ -4,12 +4,12 @@ import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, Truck, PhoneCall, Home, ShoppingBag, Instagram, ArrowRight, Gift, Ruler, Weight, Sparkles, MessageCircle } from "lucide-react";
+import { CheckCircle2, Truck, PhoneCall, Home, ShoppingBag, Instagram, ArrowRight, Gift, Ruler, Weight, Sparkles } from "lucide-react";
 
 // محتوى صفحة الشكر الذي يقرأ الرابط ويتابع التحويلات
 function ThankYouContent() {
   const searchParams = useSearchParams();
-  const name = searchParams.get("name") || "عزيزتنا";
+  const name = searchParams.get("name") || "";
   const gov = searchParams.get("gov") || "";
   const address = searchParams.get("address") || "";
   const quantity = searchParams.get("quantity") || "1";
@@ -32,22 +32,6 @@ function ThankYouContent() {
       console.log("Meta Pixel Purchase Event Tracked Successfully:", total, "JOD");
     }
   }, [total, quantity]);
-
-  const handleWhatsAppClick = () => {
-    const adminPhone = "962775347250";
-    const message = `🔔 *طلب تفصيل جديد - لقطة كوليكشن*
-• *الاسم:* ${name}
-• *الهاتف:* ${searchParams.get("phone") || ""}
-• *المحافظة:* ${gov}
-• *العنوان:* ${address}
-• *القياسات:* الوزن: ${weight} كغ / الطول: ${height} سم
-• *الكمية:* ${quantity === "2" ? "قطعتين" : "قطعة واحدة"}
-• *الألوان:* ${color} ${color2 ? `/ ${color2}` : ""}
-• *المجموع:* ${total} دينار`;
-
-    const waLink = `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
-    window.location.href = waLink; // استخدام location.href للتحويل المباشر
-  };
 
   return (
     <div className="max-w-xl mx-auto px-4 py-8 sm:py-12">
@@ -103,29 +87,12 @@ function ThankYouContent() {
         </div>
 
         {/* حوافز إضافية لضمان ثبات الطلب وعدم الإلغاء */}
-      <div className="bg-sand/60 rounded-2xl p-4 mt-2 space-y-2 text-xs text-earth">
-        <div className="flex items-center gap-2 text-royal font-bold">
-          <Gift size={15} className="text-gold" /> الشال والحزام هدية مجانية!
+        <div className="bg-sand/60 rounded-2xl p-4 mt-2 space-y-2 text-xs text-earth">
+          <div className="flex items-center gap-2 text-royal font-bold">
+            <Gift size={15} className="text-gold" /> الشال والحزام هدية مجانية!
+          </div>
+          <p>تم إرفاق شال فاخر وحزام أنيق مجاناً مع طلبكِ بدون أي تكلفة إضافية.</p>
         </div>
-        <p>تم إرفاق شال فاخر وحزام أنيق مجاناً مع طلبكِ بدون أي تكلفة إضافية.</p>
-      </div>
-      
-      {/* تأكيد الواتساب المباشر */}
-      <div className="mt-6 text-center space-y-4">
-        <p className="text-xs text-red-700 font-bold bg-red-50 p-3 rounded-xl border border-red-100">
-          ⚠️ مهم: يرجى إرسال الفاتورة عبر الواتساب لتأكيد البدء بالتفصيل ولضمان سرعة التوصيل.
-        </p>
-
-        <button
-          onClick={handleWhatsAppClick}
-          className="w-full bg-[#25D366] hover:bg-[#1ebd5b] text-white font-extrabold text-lg py-4 rounded-2xl shadow-lg active:scale-[0.98] transition flex items-center justify-center gap-2"
-        >
-          <MessageCircle size={22} />
-          تأكيد الطلب عبر الواتساب الآن
-        </button>
-        
-        <p className="text-[11px] text-earth">سيتم تأكيد القياسات فوراً بعد إرسال رسالة الواتساب.</p>
-      </div>
       </div>
 
       {/* قسم تتبع خطة التوصيل وتأكيد الطلب */}
@@ -182,18 +149,12 @@ function ThankYouContent() {
   );
 }
 
-
-
-
-
-
-
 export default function ThankYouPage() {
   return (
     <main className="min-h-screen bg-sand/30 py-8 sm:py-12">
       <div className="max-w-xl mx-auto text-center mb-6">
         <div className="relative w-14 h-14 mx-auto rounded-full overflow-hidden ring-2 ring-gold/40">
-          <Image src="/media/logo.webp" alt="لقطة كوليكشن" fill loading="lazy" decoding="async" className="object-cover" />
+          <Image src="/media/logo.jpeg" alt="لقطة كوليكشن" fill className="object-cover" />
         </div>
         <p className="font-display font-bold text-royal mt-2 text-xs tracking-widest">L O Q T A</p>
       </div>

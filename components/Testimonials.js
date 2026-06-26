@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Star, Quote, BadgeCheck, Heart } from "lucide-react";
 import { TESTIMONIALS } from "../app/data";
 import Reveal from "./Reveal";
-import Image from "next/image";
 
 function Stars({ n }) {
   return (
@@ -24,7 +23,7 @@ export default function Testimonials() {
             <span className="inline-flex items-center gap-2 rounded-full bg-royal text-goldLight text-xs px-4 py-1.5">
               <Heart size={14} fill="currentColor" /> آراء عميلاتنا
             </span>
-            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl text-balance tracking-tight font-bold text-royal mt-3">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-royal mt-3">
               صبايا الأردن <span className="gold-text">وقعوا بحبها</span>
             </h2>
           </div>
@@ -45,41 +44,8 @@ export default function Testimonials() {
           </div>
         </Reveal>
 
-        {/* سكرين شوتس لآراء العملاء */}
-        <Reveal delay={0.1}>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            <div className="relative w-full rounded-2xl overflow-hidden bg-white ring-2 ring-gold/20 shadow-lg p-1.5 group">
-              <Image 
-                src="/media/image_6.webp" 
-                alt="رأي عميلة 1" 
-                width={600}
-                height={874}
-                loading="lazy"
-                referrerPolicy="no-referrer"
-                className="w-full h-auto rounded-xl object-contain shadow-inner group-hover:scale-[1.02] transition-transform duration-500" 
-              />
-            </div>
-            <div className="relative w-full rounded-2xl overflow-hidden bg-white ring-2 ring-gold/20 shadow-lg p-1.5 group">
-              <Image 
-                src="/media/image_7.webp" 
-                alt="رأي عميلة 2" 
-                width={600}
-                height={450}
-                loading="lazy"
-                referrerPolicy="no-referrer"
-                className="w-full h-auto rounded-xl object-contain shadow-inner group-hover:scale-[1.02] transition-transform duration-500" 
-              />
-            </div>
-          </div>
-          <div className="mt-6 text-center">
-            <p className="font-display text-lg sm:text-xl md:text-2xl font-bold text-[#6e1f2b] leading-relaxed">
-              فخامةٌ تعكسُ رضا عميلاتنا.. وانضمي أنتِ أيضاً لقائمة المتألقات!
-            </p>
-          </div>
-        </Reveal>
-
         {/* شريط آراء متحرك */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={i} delay={i * 0.05}>
               <motion.div

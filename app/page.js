@@ -6,6 +6,7 @@ import { ShoppingBag, Instagram, Facebook } from "lucide-react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Gallery from "../components/Gallery";
+import Colors from "../components/Colors";
 import Videos from "../components/Videos";
 import Features from "../components/Features";
 import Pricing from "../components/Pricing";
@@ -22,14 +23,15 @@ export default function Page() {
   const total = quantity === 2 ? PRICE_TWO : PRICE_ONE;
 
   return (
-    <main className="min-h-screen pb-32">
+    <main className="min-h-screen pb-24">
       <Header onOrder={scrollToForm} />
       <Hero onOrder={scrollToForm} />
       <Gallery />
+      <Colors selected={color} setSelected={setColor} />
       <Videos />
       <Features />
-      <Pricing quantity={quantity} setQuantity={setQuantity} onOrder={scrollToForm} />
       <Testimonials />
+      <Pricing quantity={quantity} setQuantity={setQuantity} onOrder={scrollToForm} />
       <OrderForm
         quantity={quantity} setQuantity={setQuantity}
         color={color} setColor={setColor}
@@ -40,7 +42,7 @@ export default function Page() {
       <footer className="royal-gradient text-cream pt-10 pb-28">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <div className="relative w-16 h-16 mx-auto rounded-full overflow-hidden ring-2 ring-gold/40">
-            <Image src="/media/logo.webp" alt="لقطة كوليكشن" fill loading="lazy" decoding="async" className="object-cover" />
+            <Image src="/media/logo.jpeg" alt="لقطة كوليكشن" fill className="object-cover" />
           </div>
           <h3 className="font-display text-xl font-bold mt-3 gold-text">لقطة كوليكشن</h3>
           <p className="text-cream/75 text-sm mt-2 max-w-md mx-auto">

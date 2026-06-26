@@ -16,7 +16,7 @@ export default function Features() {
     <section className="py-10 bg-sand/60">
       <div className="max-w-3xl mx-auto px-4">
         <Reveal>
-          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl text-balance tracking-tight font-bold text-center text-royal">
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-center text-royal">
             ليش <span className="gold-text">عباية لقطة</span> الأكثر طلباً؟
           </h2>
         </Reveal>
