@@ -18,6 +18,8 @@ import { PRICE_ONE, PRICE_TWO, SOCIAL } from "./data";
 
 
 
+
+
 export const dynamic = "force-dynamic";
 
 export default function Page() {

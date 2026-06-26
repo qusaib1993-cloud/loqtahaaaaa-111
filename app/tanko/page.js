@@ -177,6 +177,8 @@ function ThankYouContent() {
   );
 }
 
+export const dynamic = "force-dynamic";
+
 export default function ThankYouPage() {
   return (
     <Suspense fallback={<LoadingState />}>
