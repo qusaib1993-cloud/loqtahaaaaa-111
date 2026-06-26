@@ -126,7 +126,7 @@ export default function OrderForm({ quantity, setQuantity, color, setColor, form
       height: String(payload.height),
       weight: String(payload.weight)
     });
-    window.location.href = `/tanko?${params.toString()}`;
+    window.location.href = `/thank-you?${params.toString()}`;
   };
 
   return (
