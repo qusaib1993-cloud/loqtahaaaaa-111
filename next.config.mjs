@@ -2,9 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: { unoptimized: true },
-  output: 'standalone',
   experimental: {
-    optimizePackageImports: ['lucide-react']
+    optimizePackageImports: ["lucide-react", "framer-motion"]
   }
 };
 export default nextConfig;

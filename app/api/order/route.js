@@ -5,7 +5,7 @@ import path from "path";
 export const dynamic = "force-dynamic";
 
 // دالة تنظيف وتنسيق الأرقام لشبكة الواتساب الأردنية بصيغة دولية بدون بلس
-function formatJordanianPhone(phone: string): string {
+function formatJordanianPhone(phone) {
   let cleaned = phone.replace(/[^\d]/g, ""); // إبقاء الأرقام فقط
   if (cleaned.startsWith("00962")) {
     cleaned = cleaned.slice(5);
@@ -21,7 +21,7 @@ function formatJordanianPhone(phone: string): string {
 }
 
 // دالة إرسال رسائل الواتساب عبر بوابة UltraMsg
-async function sendWhatsAppUltraMsg(to: string, message: string) {
+async function sendWhatsAppUltraMsg(to, message) {
   const url = process.env.WHATSAPP_API_URL;
   const token = process.env.WHATSAPP_TOKEN;
 
@@ -57,7 +57,7 @@ async function sendWhatsAppUltraMsg(to: string, message: string) {
   }
 }
 
-export async function POST(req: Request) {
+export async function POST(req) {
   try {
     const data = await req.json();
     const required = ["name", "phone", "gov", "address", "height", "weight"];
