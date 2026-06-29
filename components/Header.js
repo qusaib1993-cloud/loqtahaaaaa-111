@@ -19,7 +19,7 @@ export default function Header({ onOrder }) {
               <span key={i} className="flex items-center gap-10">
                 <span className="flex items-center gap-2"><Truck size={15} className="text-goldLight" /> توصيل مجاني لكل محافظات الأردن</span>
                 <span className="flex items-center gap-2"><ShieldCheck size={15} className="text-goldLight" /> الدفع عند الاستلام</span>
-                <span className="flex items-center gap-2 gold-text font-bold">عرض القطعتين: 32 دينار فقط</span>
+                <span className="flex items-center gap-2 gold-text font-bold">عرض القطعتين: 22 دينار فقط</span>
               </span>
             ))}
           </motion.div>

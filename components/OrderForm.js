@@ -22,7 +22,7 @@ const inputCls =
 
 export default function OrderForm({ quantity, setQuantity, color, setColor, formRef }) {
   const [form, setForm] = useState({ name: "", phone: "", gov: "", address: "", height: "", weight: "" });
-  const [color2, setColor2] = useState("maroon");
+  const [color2, setColor2] = useState("c6");
   const [errors, setErrors] = useState({});
   const [done, setDone] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -132,7 +132,7 @@ export default function OrderForm({ quantity, setQuantity, color, setColor, form
               <CheckCircle2 size={56} className="mx-auto text-goldLight" />
               <h3 className="font-display text-2xl font-bold mt-3">تم استلام طلبكِ بنجاح </h3>
               <p className="text-cream/85 mt-2 text-sm leading-relaxed">
-                شكراً لثقتكِ بـ <span className="text-goldLight font-bold">لقطة كوليكشن</span>.
+                شكراً لثقتكِ بـ <span className="text-goldLight font-bold">عباية الستراس</span>.
                 راح يوصلكِ طلبكِ خلال يومين إلى ثلاثة أيام، ومندوب التوصيل رح يتواصل معكِ ويأكد الطلب معكِ قبل التسليم.
               </p>
               <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-cream/10 border border-goldLight/30 px-4 py-2 text-goldLight text-sm">

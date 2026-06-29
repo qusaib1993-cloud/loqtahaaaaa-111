@@ -26,7 +26,7 @@ function ThankYouContent() {
       window.fbq("track", "Purchase", {
         value: parseFloat(total) || 28,
         currency: "JOD",
-        content_name: "عباية لقطة كوليكشن",
+        content_name: "عباية الستراس الفاخرة",
         content_category: "Abayas",
         num_items: parseInt(quantity) || 1,
       });
@@ -46,7 +46,7 @@ function ThankYouContent() {
           تم استلام طلبكِ بنجاح يا {name || "عزيزتنا"}! 🎉
         </h1>
         <p className="text-earth text-sm sm:text-base mt-2 max-w-md mx-auto leading-relaxed">
-          شكراً لثقتكِ بـ <span className="font-bold text-royal">لقطة كوليكشن</span>. عبايتكِ الفخمة قيد التفصيل والتحضير الآن لتناسب قياسكِ تماماً.
+          شكراً لثقتكِ بـ <span className="font-bold text-royal">عباية الستراس</span>. عبايتكِ الفخمة قيد التفصيل والتحضير الآن لتناسب قياسكِ تماماً.
         </p>
       </div>
 
@@ -133,7 +133,7 @@ function ThankYouContent() {
       <div className="mt-8">
         <a
           href={`https://wa.me/962775347250?text=${encodeURIComponent(
-            `طلب جديد - لقطة كوليكشن\n━━━━━━━━━━━━━━\n👤 الاسم: ${name}\n📍 المحافظة: ${(gov || governorate) || '-'}\n🏠 العنوان: ${address || '-'}\n📦 الكمية: ${quantity}\n🎨 اللون: ${color || 'غير محدد'}${color2 ? ` & ${color2}` : ''}\n📏 الطول: ${height || '-'} سم\n⚖️ الوزن: ${weight || '-'} كغ\n💰 المجموع: ${total} دينار\n━━━━━━━━━━━━━━`
+            `طلب جديد - عباية الستراس\n━━━━━━━━━━━━━━\n👤 الاسم: ${name}\n📍 المحافظة: ${(gov || governorate) || '-'}\n🏠 العنوان: ${address || '-'}\n📦 الكمية: ${quantity}\n🎨 اللون: ${color || 'غير محدد'}${color2 ? ` & ${color2}` : ''}\n📏 الطول: ${height || '-'} سم\n⚖️ الوزن: ${weight || '-'} كغ\n💰 المجموع: ${total} دينار\n━━━━━━━━━━━━━━`
           )}`}
           target="_blank"
           rel="noreferrer"

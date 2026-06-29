@@ -15,7 +15,7 @@ import { PRICE_ONE, PRICE_TWO, SOCIAL } from "./data";
 
 export default function Page() {
   const [quantity, setQuantity] = useState(1);
-  const [color, setColor] = useState("green");
+  const [color, setColor] = useState("c5");
   const formRef = useRef(null);
 
   const scrollToForm = () => formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -44,7 +44,7 @@ export default function Page() {
           </div>
           <h3 className="font-display text-xl font-bold mt-3 gold-text">لقطة كوليكشن</h3>
           <p className="text-cream/75 text-sm mt-2 max-w-md mx-auto">
-            عبايات فاخرة مفصّلة على قياسك. جودة حقيقية، توصيل مجاني لكل محافظات الأردن، والدفع عند الاستلام.
+            عباية الستراس الفاخرة المصممة بلمسة عصرية من الكريب التركي الناعم والمريح والمفصّلة على قياسك. جودة حقيقية، توصيل مجاني لكل محافظات الأردن، والدفع عند الاستلام بعد المعاينة الكاملة.
           </p>
 
           <p className="text-goldLight text-sm mt-6 mb-3">تابعونا ليوصلكم كل جديد</p>

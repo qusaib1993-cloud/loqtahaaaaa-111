@@ -23,15 +23,15 @@ export default function Hero({ onOrder }) {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
           className="font-display mt-4 text-3xl sm:text-5xl font-bold leading-tight text-balance"
         >
-          عباية <span className="gold-text">لقطة كوليكشن</span> الملكية الفاخرة
+          عباية <span className="gold-text">الستراس</span> الفاخرة
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
           className="mt-3 text-sm sm:text-lg text-cream/85 max-w-xl mx-auto text-balance"
         >
-          تُفصّل خصيصاً <span className="text-goldLight font-bold">حسب وزنكِ وطولكِ بدقة</span> — لتناسب تفاصيل قوامكِ تماماً. 
-          قماش كريب بلازما نخب أول بكسرات ملكية أنيقة على الأكمام، وانسياب منسدل فخم. <span className="text-goldLight font-bold block mt-1 text-xs sm:text-sm">افحصي عبايتكِ وجرّبي الجودة والقياس عند الاستلام قبل الدفع!</span>
+          بتصميم عصري يجمع بين البساطة والأناقة المترفة، منسوجة من <span className="text-goldLight font-bold">خامة الكريب التركي الناعمة والمريحة ✨</span>.
+          تُفصّل بدقة <span className="text-goldLight font-bold">حسب وزنكِ وطولكِ (ولغاية وزن 120 كغم)</span> لتبهركِ بانسياب فريد ومثالي. <span className="text-goldLight font-bold block mt-1 text-xs sm:text-sm">افحصي عبايتكِ وجرّبي الجودة والقياس عند الاستلام قبل الدفع!</span>
         </motion.p>
 
         <motion.div
@@ -39,9 +39,9 @@ export default function Hero({ onOrder }) {
           className="mt-5 flex flex-wrap items-center justify-center gap-2 text-[12px] sm:text-sm"
         >
           {[
-            { icon: <Ruler size={14} />, t: "تفصيل حسب الوزن والطول" },
+            { icon: <Ruler size={14} />, t: "تفصيل لغاية وزن 120 كغم" },
             { icon: <Gift size={14} />, t: "شال + حزام هدية" },
-            { icon: <Sparkles size={14} />, t: "توصيل مجاني" },
+            { icon: <Sparkles size={14} />, t: "توصيل لكافة المحافظات" },
           ].map((b, i) => (
             <span key={i} className="flex items-center gap-1.5 rounded-full bg-cream/10 border border-cream/15 px-3 py-1.5 text-goldLight">
               {b.icon} {b.t}
@@ -54,15 +54,15 @@ export default function Hero({ onOrder }) {
           className="relative mt-7"
         >
           <div className="floaty frame-gold relative mx-auto w-[78%] max-w-sm aspect-[3/4] rounded-[28px] overflow-hidden ring-1 ring-gold/30">
-            <Image src="/media/look-maroon-studio.jpeg" alt="عباية لقطة كوليكشن الملكية" fill priority className="object-cover" />
+            <Image src="/media/look-green.jpeg" alt="عباية الستراس الفاخرة" fill priority className="object-cover" />
           </div>
           {/* بطاقة السعر العائمة */}
           <motion.div
             initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.6 }}
             className="absolute top-6 left-3 sm:left-10 glass rounded-2xl px-4 py-3 text-royal text-right shadow-soft"
           >
-            <p className="text-[11px] text-earth">السعر شامل التوصيل</p>
-            <p className="font-display text-2xl font-bold gold-text">18 دينار</p>
+            <p className="text-[11px] text-earth">سعر حرق لفترة محدودة</p>
+            <p className="font-display text-2xl font-bold gold-text">14 دينار</p>
           </motion.div>
         </motion.div>
 
