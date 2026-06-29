@@ -1,7 +1,8 @@
 "use client";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { User, Phone, MapPin, Home, Ruler, Weight, ShoppingBag, CheckCircle2, Truck, Gift, PhoneCall, Loader2 } from "lucide-react";
+import Image from "next/image";
+import { User, Phone, MapPin, Home, Ruler, Weight, ShoppingBag, CheckCircle2, Truck, Gift, PhoneCall, Loader2, Check } from "lucide-react";
 import { COLORS, GOVERNORATES, PRICE_ONE, PRICE_TWO, SIZE_GUIDE_VIDEO } from "../app/data";
 import InlineVideo from "./InlineVideo";
 
@@ -162,39 +163,117 @@ export default function OrderForm({ quantity, setQuantity, color, setColor, form
                 ))}
               </div>
 
-              {/* اللون */}
-              <div>
-                <label className="text-sm font-bold text-royal">اللون{quantity === 2 ? " الأول" : ""}</label>
-                <div className="mt-2 flex gap-2 flex-wrap">
-                  {COLORS.map((c) => (
-                    <button
-                      type="button" key={c.id} onClick={() => setColor(c.id)}
-                      className="w-9 h-9 rounded-full transition"
-                      style={{ background: c.hex, boxShadow: color === c.id ? `0 0 0 2px #fbf7ee, 0 0 0 4px ${c.ring}` : undefined }}
-                      aria-label={c.name}
-                      title={c.name}
-                    />
-                  ))}
-                  <span className="self-center text-sm text-earth mr-1">{colorName(color)}</span>
+              {/* اختيار الألوان الفخم - مدمج من مكون الألوان */}
+              <div className="space-y-4">
+                <div className="text-center pb-2 border-b border-gold/15">
+                  <h3 className="font-display text-base sm:text-lg font-bold text-royal flex items-center justify-center gap-2">
+                    <span>🎨</span> اختاري لونكِ المفضّل
+                  </h3>
+                  <p className="text-xs text-earth mt-1">الألوان المتوفرة حالياً — كلها من نفس الخامة الفاخرة</p>
                 </div>
-              </div>
 
-              {quantity === 2 && (
+                {/* اللون الأول */}
                 <div>
-                  <label className="text-sm font-bold text-royal">اللون الثاني</label>
-                  <div className="mt-2 flex gap-2 flex-wrap">
-                    {COLORS.map((c) => (
-                      <button
-                        type="button" key={c.id} onClick={() => setColor2(c.id)}
-                        className="w-9 h-9 rounded-full transition"
-                        style={{ background: c.hex, boxShadow: color2 === c.id ? `0 0 0 2px #fbf7ee, 0 0 0 4px ${c.ring}` : undefined }}
-                        aria-label={c.name} title={c.name}
-                      />
-                    ))}
-                    <span className="self-center text-sm text-earth mr-1">{colorName(color2)}</span>
+                  {quantity === 2 && (
+                    <label className="block text-sm font-bold text-royal mb-2">اللون الأول:</label>
+                  )}
+                  <div className="grid grid-cols-4 gap-3">
+                    {COLORS.map((c) => {
+                      const on = color === c.id;
+                      return (
+                        <button
+                          type="button"
+                          key={c.id}
+                          onClick={() => setColor(c.id)}
+                          className="flex flex-col items-center gap-2 active:scale-95 transition"
+                        >
+                          <span
+                            className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-soft flex items-center justify-center transition"
+                            style={{
+                              background: c.hex,
+                              boxShadow: on ? `0 0 0 2px #fbf7ee, 0 0 0 5px ${c.ring}` : undefined,
+                            }}
+                          >
+                            {on && (
+                              <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} className="text-cream">
+                                <Check size={18} />
+                              </motion.span>
+                            )}
+                          </span>
+                          <span className={`text-[11px] font-bold ${on ? "text-royal" : "text-earth"}`}>
+                            {c.name}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
-              )}
+
+                {/* اللون الثاني (عند اختيار قطعتين) */}
+                {quantity === 2 && (
+                  <div className="pt-2 border-t border-gold/10">
+                    <label className="block text-sm font-bold text-royal mb-2">اللون الثاني:</label>
+                    <div className="grid grid-cols-4 gap-3">
+                      {COLORS.map((c) => {
+                        const on = color2 === c.id;
+                        return (
+                          <button
+                            type="button"
+                            key={c.id}
+                            onClick={() => setColor2(c.id)}
+                            className="flex flex-col items-center gap-2 active:scale-95 transition"
+                          >
+                            <span
+                              className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-soft flex items-center justify-center transition"
+                              style={{
+                                background: c.hex,
+                                boxShadow: on ? `0 0 0 2px #fbf7ee, 0 0 0 5px ${c.ring}` : undefined,
+                              }}
+                            >
+                              {on && (
+                                <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} className="text-cream">
+                                  <Check size={18} />
+                                </motion.span>
+                              )}
+                            </span>
+                            <span className={`text-[11px] font-bold ${on ? "text-royal" : "text-earth"}`}>
+                              {c.name}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* صور خامات وتفاصيل الألوان */}
+                <div className="grid grid-cols-2 gap-3 pt-3">
+                  <figure className="rounded-2xl overflow-hidden shadow-soft ring-1 ring-gold/15 relative aspect-[3/4]">
+                    <Image
+                      src="/media/colors-grid.jpeg"
+                      alt="الألوان على العباية"
+                      fill
+                      className="object-cover object-top"
+                      referrerPolicy="no-referrer"
+                    />
+                    <figcaption className="absolute bottom-0 inset-x-0 bg-royalDark/65 text-cream text-[10px] sm:text-[11px] py-1 text-center font-medium">
+                      الألوان على العباية
+                    </figcaption>
+                  </figure>
+                  <figure className="rounded-2xl overflow-hidden shadow-soft ring-1 ring-gold/15 relative aspect-[3/4] bg-sand">
+                    <Image
+                      src="/media/color-swatches.jpeg"
+                      alt="خامات الألوان"
+                      fill
+                      className="object-contain"
+                      referrerPolicy="no-referrer"
+                    />
+                    <figcaption className="absolute bottom-0 inset-x-0 bg-royalDark/65 text-cream text-[10px] sm:text-[11px] py-1 text-center font-medium">
+                      خامات الألوان الحقيقية
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
 
               <hr className="border-gold/15" />
 
